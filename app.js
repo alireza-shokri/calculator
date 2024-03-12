@@ -1,34 +1,86 @@
-let $=document
-let number1=$.querySelector('.number1')
-let boxs=$.getElementsByClassName('box')
-let jam=$.querySelector('.jam')
-let rest=$.querySelector('.rest')
-let t=''
-rest.addEventListener('click',clear)
+let $=document;
+let numbernamaysh=$.querySelector('.number-namaysh');
+let boxs=$.getElementsByClassName('box');
+let rest=$.querySelector('.rest');
+let onoff=$.getElementById('on-off');
+onoff.addEventListener('click',kled);
+rest.addEventListener('click',clear);
+// let body=$.body
+let karakter='';
+let motagear=false
+
 for (var i=0;i<boxs.length;i++){
     boxs[i].addEventListener('click',my)
-    }
-function my(event){
-    let q=event.target
-    if (q.getAttribute('value')=='mosavi'){
-       let jam2ta=(eval(t))
-       number1.innerHTML=jam2ta
-        t=String(jam2ta) 
-        console.log(typeof(t))
+    // body.addEventListener('keydown',my2)
+}
+// --------------------------------------------------------
+
+function kled(){
+    if(! motagear){
+        onoff.innerHTML='on'
+        onoff.style.background='blue'
+        motagear=true
     }
     else{
-        let r=(event.target) 
-        let v=(r.getAttribute('value'))
-        t+=(v)
-        number1.innerHTML=t
-        console.log(t)
+        onoff.innerHTML='off'
+        numbernamaysh.innerHTML=''
+        karakter=''
+        onoff.style.background='rgba(255, 68, 0, 0.815)'
+        motagear=false
     }
 }
+// --------------------------------------------------
+function my(event){ 
+    if(motagear){
+        let boxevent=event.target
+        if (boxevent.getAttribute('value')=='mosavi'){
+
+            if (karakter.length==0)
+                numbernamaysh.innerHTML='nothing not here'
+            else{
+
+                numbernamaysh.innerHTML= (eval(karakter))
+                karakter=String(eval(karakter))
+            }
+        }
+        else{
+            karakter+=(boxevent.getAttribute('value'))
+            numbernamaysh.innerHTML=karakter
+        }
+    }
+}
+// ----------------------------------------------------
 function clear(){
-    t=(t.slice(0,-1))
-    number1.innerHTML=t
-    console.log(t)
+    karakter=(karakter.slice(0,-1))
+    numbernamaysh.innerHTML=karakter
 }
 
+// function my2(event2){
+//     let alaem=(event2.key)
+  
+//     if(alaem==('-')||alaem==('*')||alaem==('+')||alaem==('/')||alaem==('.')||alaem==('%')){
+
+//         t+=alaem
+//         number.innerHTML=t
+
+//     }
+//     if (alaem==('=')||alaem==('Enter')){
+//         let nv=eval(t)
+//         t=nv
+//         number.innerHTML=nv
+//     }
+//     if(alaem=='Backspace'){
+//         clear()
+//     }
+//     let p=Number(event2.key)
+//     if (p){
+//         t+=p
+//         number.innerHTML=t
+//         console.log(p)
+//     }
+    
+
+// }
+ 
 
 

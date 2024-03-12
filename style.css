@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(8, 6, 43);
+}
 *{
     margin: 0;
     padding: 0;
@@ -5,59 +8,80 @@
 }
 .all{
     width: 400px;
-    margin: 20px auto 5px;
+    margin: 35px auto 5px;
     padding: 10px;
-    background-color: wheat;
+    border: 1px solid red;
     border-radius: 10px;
+    background-color: rgb(13, 49, 49);
 }
 #namaysh{
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin: auto;
-    background-color:red;
+    padding: 5px;
+    border-radius: 4px;
+    background-color:rgba(245, 222, 179, 0.603);
+    box-shadow: 1px 3px 3px 0.2px rgba(0, 0, 0, 0.726);
 }
-p{
-    display: inline;
+.number-namaysh{
     font-size: 30px;
 }
-.parent_rest{
-   direction: rtl;
-   padding: 10px;
-   margin-top: 10px;
-   width: 100%;
-   height: 30px;
-}
-.rest{
-    margin-right: 42px;
+.rest,
+#on-off
+{
     width:80px;
-    background-color: blue;
-    border-radius: 10px;
+    height: 51px;
+    margin-top: 5px;
+    border: none;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(255, 68, 0, 0.815);
     cursor: pointer;
+   
 }
 .parent_box{
     display: flex;
+    justify-content: center;
     gap: 8px;
-   justify-content: center;
-   margin-top: 20px;
-   
     flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+
 }
 .box{
-    width: 70px;
+    width: 80px;
     height: 70px;
-    border-radius: 100%;
     text-align: center;
     line-height: 70px;
     font-size: 30px;
-    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(43, 226, 226, 0.623);
+    transition: 0.3s;
     cursor: pointer;
 }
-.box_mosavi{
-    margin-top: 15px;
-    width: 70%;
-    border-radius: 4px;
+.mosavi{
+    width: 48%;
     height: 50px;
-    font-size: 100px;
+    margin-top: 6px;
     line-height: 50px;
-    background-color: green;
+    font-size: 100px;
+    border-radius: 4px;
+    background-color: rgb(0, 128, 90);
+    
+}
+.box:hover{
+    background-color: rgba(0, 255, 255, 0.856);
+}
+.mosavi:hover{
+    background-color: rgba(25, 88, 18, 0.781);
+}
+.rest:hover{
+    background-color: rgba(255, 196, 0, 0.671);
+}
+.on-off:hover{
+    background-color: rgba(255, 68, 0, 0.897);
 }
