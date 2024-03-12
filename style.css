@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.all{
+    width: 400px;
+    margin: 20px auto 5px;
+    padding: 10px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+#namaysh{
+    width: 100%;
+    height: 80px;
+    margin: auto;
+    background-color:red;
+}
+p{
+    display: inline;
+    font-size: 30px;
+}
+.parent_rest{
+   direction: rtl;
+   padding: 10px;
+   margin-top: 10px;
+   width: 100%;
+   height: 30px;
+}
+.rest{
+    margin-right: 42px;
+    width:80px;
+    background-color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.parent_box{
+    display: flex;
+    gap: 8px;
+   justify-content: center;
+   margin-top: 20px;
+   
+    flex-wrap: wrap;
+}
+.box{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 70px;
+    font-size: 30px;
+    background-color: blueviolet;
+    cursor: pointer;
+}
+.box_mosavi{
+    margin-top: 15px;
+    width: 70%;
+    border-radius: 4px;
+    height: 50px;
+    font-size: 100px;
+    line-height: 50px;
+    background-color: green;
+}
