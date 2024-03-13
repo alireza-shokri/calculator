@@ -1,31 +1,34 @@
 let $=document;
+let namaysh=$.querySelector('#namaysh');
 let numbernamaysh=$.querySelector('.number-namaysh');
 let boxs=$.getElementsByClassName('box');
 let rest=$.querySelector('.rest');
 let onoff=$.getElementById('on-off');
 onoff.addEventListener('click',kled);
 rest.addEventListener('click',clear);
-// let body=$.body
+let body=$.body
 let karakter='';
 let motagear=false
 
 for (var i=0;i<boxs.length;i++){
     boxs[i].addEventListener('click',my)
-    // body.addEventListener('keydown',my2)
 }
+    body.addEventListener('keydown',my2)
 // --------------------------------------------------------
-
 function kled(){
-    if(! motagear){
-        onoff.innerHTML='on'
-        onoff.style.background='blue'
-        motagear=true
+    if(!motagear){
+        onoff.innerHTML='on';
+        onoff.style.background='blue';
+        namaysh.style.background='rgba(245, 222, 179, 0.603)';
+        numbernamaysh.innerHTML='welcom ...'
+        motagear=true;
     }
     else{
         onoff.innerHTML='off'
+        onoff.style.background='rgba(255, 68, 0, 0.815)'
+        namaysh.style.background='rgba(0, 0, 0, 0.623';
         numbernamaysh.innerHTML=''
         karakter=''
-        onoff.style.background='rgba(255, 68, 0, 0.815)'
         motagear=false
     }
 }
@@ -34,11 +37,13 @@ function my(event){
     if(motagear){
         let boxevent=event.target
         if (boxevent.getAttribute('value')=='mosavi'){
-
+           
             if (karakter.length==0)
-                numbernamaysh.innerHTML='nothing not here'
+                numbernamaysh.innerHTML='nothing not here :'
             else{
-
+                if(karakter.includes('-')||karakter.includes('*')||karakter.includes('+')||karakter.includes('/')||karakter.includes('.')||karakter.includes(0)){
+                    namaysh.style.background='orange'
+                }
                 numbernamaysh.innerHTML= (eval(karakter))
                 karakter=String(eval(karakter))
             }
@@ -46,41 +51,59 @@ function my(event){
         else{
             karakter+=(boxevent.getAttribute('value'))
             numbernamaysh.innerHTML=karakter
+            namaysh.style.background='rgba(245, 222, 179, 0.603)'
         }
     }
+    console.log(karakter)
 }
 // ----------------------------------------------------
 function clear(){
-    karakter=(karakter.slice(0,-1))
+    karakter=karakter.substring(0,karakter.length-1);
     numbernamaysh.innerHTML=karakter
+    namaysh.style.background='rgba(245, 222, 179, 0.603)'
+    console.log(karakter)
 }
-
-// function my2(event2){
-//     let alaem=(event2.key)
-  
-//     if(alaem==('-')||alaem==('*')||alaem==('+')||alaem==('/')||alaem==('.')||alaem==('%')){
-
-//         t+=alaem
-//         number.innerHTML=t
-
-//     }
-//     if (alaem==('=')||alaem==('Enter')){
-//         let nv=eval(t)
-//         t=nv
-//         number.innerHTML=nv
-//     }
-//     if(alaem=='Backspace'){
-//         clear()
-//     }
-//     let p=Number(event2.key)
-//     if (p){
-//         t+=p
-//         number.innerHTML=t
-//         console.log(p)
-//     }
-    
-
-// }
- 
+// ----------------------------------------------------------------
+function my2(event2){
+    event2.preventDefault()
+    let alaem=(event2.key)
+    if(alaem=='a'){
+        kled()
+    }
+    else if(alaem=='z'){
+          motagear=true
+            kled()
+        }
+    else if(motagear){
+        let selectadd=Number(event2.key)
+        if (selectadd){
+            karakter+=selectadd
+            numbernamaysh.innerHTML=karakter
+        }
+        else if(alaem==('-')||alaem==('*')||alaem==('+')||alaem==('/')||   alaem==('.')||alaem==('%')||alaem==(0)){
+            karakter+=alaem
+            numbernamaysh.innerHTML=karakter
+        }
+        else if (alaem==('=')||alaem=='Enter'){
+            if (karakter.length==0)
+                numbernamaysh.innerHTML='nothing not here :';
+            else{
+                if(karakter.includes('-')||karakter.includes('*')||karakter.includes('+')||karakter.includes('/')||karakter.includes('.')||karakter.includes(0)){
+                    namaysh.style.background='orange'
+                }
+                let jamaddha=eval(karakter)
+                karakter=String(jamaddha)
+                numbernamaysh.innerHTML=karakter
+               
+            }
+        }
+        else {
+            if(alaem==('Backspace')){
+               clear()
+            }
+        }
+    }
+console.log(karakter.includes('+'))
+ }
 
 
