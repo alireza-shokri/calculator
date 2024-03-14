@@ -4,6 +4,7 @@ let numbernamaysh=$.querySelector('.number-namaysh');
 let boxs=$.getElementsByClassName('box');
 let rest=$.querySelector('.rest');
 let onoff=$.getElementById('on-off');
+let sound=$.getElementById('sound-butn')
 onoff.addEventListener('click',kled);
 rest.addEventListener('click',clear);
 let body=$.body
@@ -35,6 +36,7 @@ function kled(){
 // --------------------------------------------------
 function my(event){ 
     if(motagear){
+        sound.play()
         let boxevent=event.target
         if (boxevent.getAttribute('value')=='mosavi'){
            
@@ -58,10 +60,12 @@ function my(event){
 }
 // ----------------------------------------------------
 function clear(){
-    karakter=karakter.substring(0,karakter.length-1);
-    numbernamaysh.innerHTML=karakter
-    namaysh.style.background='rgba(245, 222, 179, 0.603)'
-    console.log(karakter)
+    if(motagear){
+        sound.play()
+        karakter=karakter.substring(0,karakter.length-1);
+        numbernamaysh.innerHTML=karakter
+        namaysh.style.background='rgba(245, 222, 179, 0.603)'
+    }
 }
 // ----------------------------------------------------------------
 function my2(event2){
@@ -103,7 +107,6 @@ function my2(event2){
             }
         }
     }
-console.log(karakter.includes('+'))
  }
 
 
